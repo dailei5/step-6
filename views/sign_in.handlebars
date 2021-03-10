@@ -5,9 +5,7 @@
 <div align="center">
     <h3>Sign in Weather Vault </h3>
     <label for='signIn'></label><select id='signIn' name="guides">
-    {{#each guides}}
-        <option value="{{guides}}">{{guides}}</option>
-    {{/each}}
+
 
     <form id="addGuide" action="/guides" method="post">
         <input id="nameId" required placeholder="first name" type="text" name="firstName">
@@ -15,8 +13,11 @@
         <input required placeholder="password" type="text" name="password">
         <br>
 
+        {{#each guides}}
+            <option value="{{guides}}">{{guides}}</option>
+            <input type="submit" value="SIGN IN" onclick="signIn()">
+        {{/each}}
 
-        <input type="submit" value="SIGN IN" onclick="signIn()">
 <!--        <div id="containerId"><div>-->
 
     </form>
@@ -24,8 +25,9 @@
 </div>
 
 <script>
+    console.log(user_id)
     function signIn() {
         let user_id = document.getElementById('signIn').value;
-        window.location = '/guides/filter/' + user_id
+        window.location = '/sign_in/firstName/' + user_id
     }
 </script>
