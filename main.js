@@ -11,6 +11,7 @@ app.set('view engine', 'handlebars');
 app.set('port', process.argv[2]);
 
 // Routes
+app.use('/sign_in', require('./sign_in.js'));
 app.use('/guides', require('./guides.js'));
 app.use('/climates', require('./climates.js'));
 app.use('/add-guide', require('./guides.js'));

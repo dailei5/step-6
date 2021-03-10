@@ -1,0 +1,31 @@
+<html>
+{{#each foo}}
+    {{this}}
+{{/each}}
+<div align="center">
+    <h3>Sign in Weather Vault </h3>
+    <label for='signIn'></label><select id='signIn' name="guides">
+    {{#each guides}}
+        <option value="{{guides}}">{{guides}}</option>
+    {{/each}}
+
+    <form id="addGuide" action="/guides" method="post">
+        <input id="nameId" required placeholder="first name" type="text" name="firstName">
+        <input required placeholder="last name" type="text" name="lastName">
+        <input required placeholder="password" type="text" name="password">
+        <br>
+
+
+        <input type="submit" value="SIGN IN" onclick="signIn()">
+<!--        <div id="containerId"><div>-->
+
+    </form>
+    <br/>
+</div>
+
+<script>
+    function signIn() {
+        let user_id = document.getElementById('signIn').value;
+        window.location = '/guides/filter/' + user_id
+    }
+</script>
